@@ -1,0 +1,14 @@
+{
+    "restartable": "rs",
+    "verbose": false,
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "execMap": {
+        "js": "node --inspect"
+    },
+    "watch": ["server/"],
+    "ignore": [".git", "car", "cms", "house", "site", "public"],
+    "ext": "js"
+}
+  

@@ -1,0 +1,57 @@
+{
+  "name": "koa-vue-ssr",
+  "version": "1.0.0",
+  "description": "vue ssr frame for koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhui321/koa-vue-ssr.git"
+  },
+  "keywords": [
+    "vue",
+    "ssr",
+    "koa"
+  ],
+  "author": "wuhui321",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuhui321/koa-vue-ssr/issues"
+  },
+  "homepage": "https://github.com/wuhui321/koa-vue-ssr#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-favicon": "^2.0.1",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-webpack-dev-middleware": "^2.0.2",
+    "koa-webpack-hot-middleware": "^1.0.3",
+    "lru-cache": "^5.1.1",
+    "vue": "^2.6.10",
+    "vue-server-renderer": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "chokidar": "^3.2.3",
+    "css-loader": "^3.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "memory-fs": "^0.5.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "url-loader": "^2.2.0",
+    "vue-loader": "^15.7.2",
+    "vue-style-loader": "^4.1.2",
+    "webpack": "^4.41.2",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
