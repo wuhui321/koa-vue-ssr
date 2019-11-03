@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, '../../public/site_v2/mobile/'),
+    path: path.resolve(__dirname, '../dist/'),
     publicPath: '/static/',
     filename: 'js/[name].js'
   },
@@ -17,7 +17,7 @@ module.exports = {
     extensions: [".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      '@': path.join(__dirname, `../../site_v2/mobile`),
+      '@': path.join(__dirname, `../src`),
     }
   },
 
@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, '../../site_v2/mobile')],
+        include: [path.resolve(__dirname, '../src')],
         use: [{
             loader: "babel-loader",
             options: {
