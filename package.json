@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "NODE_ENV=development nodemon server/app.js",
+    "start": "export NODE_ENV=production; pm2 start server/app.js",
     "build:client": "NODE_ENV=production webpack --progress --config build/webpack.client.config.js",
     "build:server": "NODE_ENV=production webpack --progress --config build/webpack.server.config.js",
     "build": "rimraf dist && npm run build:client && npm run build:server"
