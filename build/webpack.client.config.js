@@ -7,7 +7,7 @@ const cp = require('child_process');
 const isDev = process.env.NODE_ENV === "development";
 
 const config = merge(base, {
-  devtool: 'source-map',
+  devtool: '#source-map',
   entry: './src/entry-client.js',
   plugins: isDev ? [
     new webpack.DefinePlugin({

@@ -15,35 +15,28 @@ app.use(errorHandler());
 // 缓存
 const microCache = new LRU({
   max: 100,
-  maxAge: 1000 * 60 // 重要提示：条目在 1 秒后过期。
+  maxAge: 1000 * 60 // 缓存1秒后过期。
 });
 
 const isCacheAble = ctx => {
-  // 实现逻辑为，检查请求是否是用户特定(user-specific)。
-  // 只有非用户特定(non-user-specific)页面才会缓存
-  console.log(ctx.url)
-  if (ctx.url === '/b') {
-    return true
-  }
-  return false
+  // 可进行缓存的逻辑
+  return true;
 };
 
 const router = new Router();
 const templatePath = path.resolve(__dirname, '../src/index.html');
 let renderer;
-// 第 2步：根据环境变量生成不同BundleRenderer实例
 if (process.env.NODE_ENV === 'production') {
-  // 获取客户端、服务器端打包生成的json文件
   const serverBundle = require('../dist/vue-ssr-server-bundle.json');
   const clientManifest = require('../dist/vue-ssr-client-manifest.json');
-  // 赋值
+
   renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false,
     template: fs.readFileSync(templatePath, 'utf-8'),
     clientManifest,
   });
 } else {
-  // 开发环境
+
   setupDevServer(app, templatePath, (bundle, options) => {
       console.log('重新bundle~~~~~')
       const option = Object.assign({
@@ -66,7 +59,6 @@ const render = async (ctx, next) => {
   if (cacheAble) {
     const hit = microCache.get(ctx.url)
     if (hit) {
-      console.log('从缓存中取', hit)
       return ctx.body = hit
     }
   }
@@ -74,7 +66,6 @@ const render = async (ctx, next) => {
   const html = await renderer.renderToString(context)
   ctx.body = html
   if (cacheAble) {
-    console.log('设置缓存: ', ctx.url)
     microCache.set(ctx.url, html)
   }
 }
